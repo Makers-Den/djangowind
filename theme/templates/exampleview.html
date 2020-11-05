@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Django Tailwind proto{% endblock title %}
+
+{% block content %}
+  {% for row in rows %}
+    <div class="row">
+      <span class="w-1/4">{{row.title}}</span>
+      <span>foobar</span>
+      <div class="whitespace-no-wrap">
+        <a href="#" class="btn btn-gray">link as gray button</a>
+        <button class="btn btn-blue">big blue button</button>
+      </div>
+    </div>
+  {% endfor %}
+  <div class="flex py-4">
+  {% for card in cards %}
+    <div class="mr-4">
+      {% include "_card.html" with title=card.title img=card.img tags=card.tags %}
+    </div>
+  {% endfor %}
+  </div>
+{% endblock content %}
+
